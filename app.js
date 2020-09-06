@@ -1,7 +1,16 @@
+require("dotenv").config();
+// const dotenv = require("dotenv");
+// dotenv.config();
 const express = require("express");
 const app = express();
 const Joi = require("@hapi/joi");
 const validateSchema = require("./validations/validation");
+const debugget = require("debug")("genre-project:GET");
+const debugpost = require("debug")("genre-project:POST");
+const debugput = require("debug")("genre-project:PUT");
+const debugdelete = require("debug")("genre-project:DELETE");
+
+
 
 app.use(express.json());
 
@@ -14,11 +23,13 @@ const genres = [
 
 //get the details of the genres available within the application vidly
 app.get("/vidly.com/api/genres", (req, res) => {
+  debugget("debugging GET method");
   res.send(genres);
 });
 
 //post the new genre into the array
 app.post("/vidly.com/api/genres", (req, res) => {
+  debugpost("debugging POST method");
   var result = validateSchema.validatePostSchema(req.body);
   if (result) {
     res.status(201).send(result);
@@ -33,6 +44,7 @@ app.post("/vidly.com/api/genres", (req, res) => {
 });
 
 app.put("/vidly.com/api/genres", (req, res) => {
+  debugput("debugging PUT method");
   var result = validateSchema.validateSchema(req.body);
   if (result) {
     res.status(201).send(result);
@@ -49,6 +61,7 @@ app.put("/vidly.com/api/genres", (req, res) => {
 
 //DELETE
 app.delete("/vidly.com/api/genres", (req, res) => {
+  debugdelete("debugging DELETE method");
   var result = validateSchema.validateDeleteSchema(req.body);
   if (result) {
     res.status(201).send(result);
@@ -62,6 +75,7 @@ app.delete("/vidly.com/api/genres", (req, res) => {
   res.send(genres);
 });
 
-app.listen(2000, () => {
-  console.log("connected to server!!");
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log("connected to port ", port);
 });
