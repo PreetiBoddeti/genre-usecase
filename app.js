@@ -9,7 +9,8 @@ const debugget = require("debug")("genre-project:GET");
 const debugpost = require("debug")("genre-project:POST");
 const debugput = require("debug")("genre-project:PUT");
 const debugdelete = require("debug")("genre-project:DELETE");
-
+const cors = require("cors");
+app.use(cors());
 
 
 app.use(express.json());
