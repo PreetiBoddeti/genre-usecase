@@ -63,11 +63,11 @@ app.put("/vidly.com/api/genres", (req, res) => {
 //DELETE
 app.delete("/vidly.com/api/genres", (req, res) => {
   debugdelete("debugging DELETE method");
-  var result = validateSchema.validateDeleteSchema(req.body);
+  var result = validateSchema.validateDeleteSchema(req.param.id);
   if (result) {
     res.status(201).send(result);
   }
-  var genre = genres.find((gn) => gn.id === parseInt(req.body.id));
+  var genre = genres.find((gn) => gn.id === parseInt(req.param.id));
   if (!genre) {
     return res.status(201).send("The id given as a request is not available");
   }
