@@ -14,7 +14,7 @@ function validateSchema(requestBody) {
 }
 
 function validateDeleteSchema(requestBody) {
-  const requestBodyDeleteSchema = Joi.object().keys({
+ const requestBodyDeleteSchema = Joi.object().keys({
     id: Joi.number().required(),
   });
 
