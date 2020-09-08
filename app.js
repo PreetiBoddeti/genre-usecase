@@ -61,13 +61,13 @@ app.put("/vidly.com/api/genres", (req, res) => {
 });
 
 //DELETE
-app.delete("/vidly.com/api/genres/:id", (req, res) => {
-  debugdelete("debugging DELETE method" , req.params.id);
-  var result = validateSchema.validateDeleteSchema(req.params.id);
+app.delete("/vidly.com/api/genres", (req, res) => {
+  debugdelete("debugging DELETE method" , req.body);
+  var result = validateSchema.validateDeleteSchema(req.body);
   if (result) {
     res.status(201).send(result);
   }
-  var genre = genres.find((gn) => gn.id === parseInt(req.params.id));
+  var genre = genres.find((gn) => gn.id === parseInt(req.body.id));
   if (!genre) {
     return res.status(201).send("The id given as a request is not available");
   }
