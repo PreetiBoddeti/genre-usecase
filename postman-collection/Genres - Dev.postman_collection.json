@@ -6,115 +6,447 @@
 	},
 	"item": [
 		{
-			"name": "01 GET Genres",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:2000/vidly.com/api/genres",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "2000",
-					"path": [
-						"vidly.com",
-						"api",
-						"genres"
-					]
+			"name": "Genres",
+			"item": [
+				{
+					"name": "01 GET Genres",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{genre-localhost}}/vidly.com/api/genres",
+							"host": [
+								"{{genre-localhost}}"
+							],
+							"path": [
+								"vidly.com",
+								"api",
+								"genres"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "02 POST Genre ",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"genre\" : \"fantasy\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{genre-localhost}}/vidly.com/api/genres",
+							"host": [
+								"{{genre-localhost}}"
+							],
+							"path": [
+								"vidly.com",
+								"api",
+								"genres"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "03 PUT Genre",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\" :\"5f638b2fbdcfe102d07f3929\",\r\n    \"genre\": \"mystery\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{genre-localhost}}/vidly.com/api/genres",
+							"host": [
+								"{{genre-localhost}}"
+							],
+							"path": [
+								"vidly.com",
+								"api",
+								"genres"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "04 DELETE Genre",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\" :  \"5f6390cc6d43e82dd00bce45\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{genre-localhost}}/vidly.com/api/genres",
+							"host": [
+								"{{genre-localhost}}"
+							],
+							"path": [
+								"vidly.com",
+								"api",
+								"genres"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "02 POST Genre ",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"genre\" : \"horror\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "Movie",
+			"item": [
+				{
+					"name": "11 GET Movies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{genre-localhost}}/vidly.com/api/movies",
+							"host": [
+								"{{genre-localhost}}"
+							],
+							"path": [
+								"vidly.com",
+								"api",
+								"movies"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:2000/vidly.com/api/genres",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "2000",
-					"path": [
-						"vidly.com",
-						"api",
-						"genres"
-					]
+				{
+					"name": "12 POST movie",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\" : \"movie5\",\r\n    \"genreId\" : \"5f639078f282a618c419e16b\",\r\n    \"numberInStock\" : 200,\r\n    \"dailyRentalRate\" : 150\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{genre-localhost}}/vidly.com/api/movies",
+							"host": [
+								"{{genre-localhost}}"
+							],
+							"path": [
+								"vidly.com",
+								"api",
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "13 PUT movie",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"5f6c4d56db72044e00dd692e\",\r\n    \"title\" : \"updated movie5\",\r\n    \"genreId\" : \"5f6390f18d427b3a8841680b\",\r\n    \"numberInStock\" : 60,\r\n    \"dailyRentalRate\" : 150\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{genre-localhost}}/vidly.com/api/movies",
+							"host": [
+								"{{genre-localhost}}"
+							],
+							"path": [
+								"vidly.com",
+								"api",
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "14 DELETE movie",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\" : \"5f6b29b774166d4c3c7610c9\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{genre-localhost}}/vidly.com/api/movies",
+							"host": [
+								"{{genre-localhost}}"
+							],
+							"path": [
+								"vidly.com",
+								"api",
+								"movies"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "03 PUT Genre",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"id\" : 5 ,\r\n    \"genre\": \"horror\"\r\n\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "Customer",
+			"item": [
+				{
+					"name": "21 GET Customers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{genre-localhost}}/vidly.com/api/customers",
+							"host": [
+								"{{genre-localhost}}"
+							],
+							"path": [
+								"vidly.com",
+								"api",
+								"customers"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:2000/vidly.com/api/genres",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "2000",
-					"path": [
-						"vidly.com",
-						"api",
-						"genres"
-					]
+				{
+					"name": "22 POST Customer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"customer5\",\r\n    \"isGold\": true,\r\n    \"phone\" : \"765436291\",\r\n    \"address\": \"adress of customer5\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{genre-localhost}}/vidly.com/api/customers",
+							"host": [
+								"{{genre-localhost}}"
+							],
+							"path": [
+								"vidly.com",
+								"api",
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "23 PUT Customer",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"5f6c4e7adb72044e00dd6937\",\r\n    \"name\": \"customer5 updated\",\r\n    \"isGold\": false,\r\n    \"phone\" : \"8986543253\",\r\n    \"address\": \"updated adress of customer5\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{genre-localhost}}/vidly.com/api/customers",
+							"host": [
+								"{{genre-localhost}}"
+							],
+							"path": [
+								"vidly.com",
+								"api",
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "24 DELETE Customer",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"5f6c4e64db72044e00dd6936\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{genre-localhost}}/vidly.com/api/customers",
+							"host": [
+								"{{genre-localhost}}"
+							],
+							"path": [
+								"vidly.com",
+								"api",
+								"customers"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "04 DELETE Genre",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"id\" : 5\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "Rental",
+			"item": [
+				{
+					"name": "31 GET Rentals",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{genre-localhost}}/vidly.com/api/rentals",
+							"host": [
+								"{{genre-localhost}}"
+							],
+							"path": [
+								"vidly.com",
+								"api",
+								"rentals"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:2000/vidly.com/api/genres",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "2000",
-					"path": [
-						"vidly.com",
-						"api",
-						"genres"
-					]
+				{
+					"name": "32 POST Rental",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customerId\" : \"5f6b862d3d178f4384da3839\",\r\n    \"movieId\" : \"5f674013abebfa10d880502f\",\r\n    \"dateOut\": \"2020-09-24\",\r\n    \"dateReturned\": \"2020-10-01\",\r\n    \"rentalFee\" : 200\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{genre-localhost}}/vidly.com/api/rentals",
+							"host": [
+								"{{genre-localhost}}"
+							],
+							"path": [
+								"vidly.com",
+								"api",
+								"rentals"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "33 PUT Rental",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"5f6c3e8717e1e22124af5caf\",\r\n    \"customerId\":\"5f6b865e3d178f4384da383a\",\r\n    \"customerName\":\"updated customer\",\r\n    \"customerPhone\": \"9167890543\",\r\n    \"customerIsGold\":\"true\",\r\n    \"movieId\":\"5f6aec698455103ec4ad104a\",\r\n    \"movieTitle\":\"updated movie\",\r\n    \"movieDailyRentalRate\":150,\r\n    \"dateOut\": \"2020-09-24\",\r\n    \"dateReturned\": \"2020-10-01\",\r\n    \"rentalFee\": 200\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{genre-localhost}}/vidly.com/api/rentals",
+							"host": [
+								"{{genre-localhost}}"
+							],
+							"path": [
+								"vidly.com",
+								"api",
+								"rentals"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "34 DELETE Rental",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\" : \"5f6c4b345a8d172a78732f48\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{genre-localhost}}/vidly.com/api/rentals",
+							"host": [
+								"{{genre-localhost}}"
+							],
+							"path": [
+								"vidly.com",
+								"api",
+								"rentals"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			],
+			"protocolProfileBehavior": {}
 		}
 	],
 	"protocolProfileBehavior": {}
