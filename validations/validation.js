@@ -15,7 +15,7 @@ async function validateSchema(requestBody) {
 }
 
 async function validateDeleteSchema(requestBody) {
- const requestBodyDeleteSchema =await  Joi.object().keys({
+  const requestBodyDeleteSchema = await Joi.object().keys({
     id: Joi.required(),
   });
 
@@ -27,129 +27,166 @@ async function validateDeleteSchema(requestBody) {
 }
 
 async function validatePostSchema(requestBody) {
-  const requestBodyPostSchema =await Joi.object().keys({
+  const requestBodyPostSchema = await Joi.object().keys({
     genre: Joi.string().required(),
   });
-  const { error } =await  requestBodyPostSchema.validate(requestBody);
+  const { error } = await requestBodyPostSchema.validate(requestBody);
   if (error) {
     return error.details[0].message;
   }
 }
 
-async function validateMovie(movie){
-  const schema=await Joi.object().keys({
-    title:  Joi.string().required(),
+async function validateMovie(movie) {
+  const schema = await Joi.object().keys({
+    title: Joi.string().required(),
     genreId: Joi.string().required(),
     numberInStock: Joi.number().required(),
-    dailyRentalRate: Joi.number().required() 
+    dailyRentalRate: Joi.number().required(),
   });
-  const {error} = await schema.validate(movie);
-  if(error){
+  const { error } = await schema.validate(movie);
+  if (error) {
     return error.details[0].mesaage;
   }
 }
 
-async function validateMovieUpdate(movie){
-  const schema=await Joi.object().keys({
-    id:Joi.required(),
-    title:  Joi.string().required(),
+async function validateMovieUpdate(movie) {
+  const schema = await Joi.object().keys({
+    id: Joi.required(),
+    title: Joi.string().required(),
     genreId: Joi.string().required(),
-    genreName:Joi.string().required(),
+    genreName: Joi.string().required(),
     numberInStock: Joi.number().required(),
-    dailyRentalRate: Joi.number().required() 
+    dailyRentalRate: Joi.number().required(),
   });
-  const {error} = await schema.validate(movie);
-  if(error){
+  const { error } = await schema.validate(movie);
+  if (error) {
     return error.details[0].mesaage;
   }
 }
 
-async function validateMovieDelete(movie){
-  const schema=await Joi.object().keys({
-    id:Joi.required()
+async function validateMovieDelete(movie) {
+  const schema = await Joi.object().keys({
+    id: Joi.required(),
   });
-  const {error} = await schema.validate(movie);
-  if(error){
+  const { error } = await schema.validate(movie);
+  if (error) {
     return error.details[0].mesaage;
   }
 }
 
-async function validateRental(rental){
+async function validateRental(rental) {
   console.log(rental);
   const schema = await Joi.object().keys({
-    customerId:Joi.string().required(),
-    movieId:Joi.string().required(),
+    customerId: Joi.string().required(),
+    movieId: Joi.string().required(),
     dateOut: Joi.required(),
     dateReturned: Joi.required(),
-    rentalFee:Joi.number().required()
+    rentalFee: Joi.number().required(),
   });
-  const {error} = await schema.validate(rental);
-  if(error){
+  const { error } = await schema.validate(rental);
+  if (error) {
     return error.details[0].message;
   }
 }
 
-async function validateRentalUpdate(rental){
+async function validateRentalUpdate(rental) {
   const schema = await Joi.object().keys({
     id: Joi.string().required(),
     customerId: Joi.string().required(),
     movieId: Joi.string().required(),
-    dateOut:Joi.required(),
-    dateReturned:Joi.required(),
-    rentalFee:Joi.number().required()
+    dateOut: Joi.required(),
+    dateReturned: Joi.required(),
+    rentalFee: Joi.number().required(),
   });
-  const {error} = await schema.validate(rental);
-  if(error){
+  const { error } = await schema.validate(rental);
+  if (error) {
     return error.details[0].message;
   }
 }
 
-async function validateRentalDelete(rental){
-  const schema=await Joi.object().keys({
-    id:Joi.required()
+async function validateRentalDelete(rental) {
+  const schema = await Joi.object().keys({
+    id: Joi.required(),
   });
-  const {error} = await schema.validate(rental);
-  if(error){
+  const { error } = await schema.validate(rental);
+  if (error) {
     return error.details[0].mesaage;
   }
 }
 
-async function validateCustomer(customer){
+async function validateCustomer(customer) {
   const schema = await Joi.object().keys({
-    name:Joi.string().required(),
+    name: Joi.string().required(),
     isGold: Joi.required(),
-    phone:Joi.string().required(),
-    address:Joi.string().required()
+    phone: Joi.string().required(),
+    address: Joi.string().required(),
   });
-  const {error} = await schema.validate(customer);
-  if(error){
+  const { error } = await schema.validate(customer);
+  if (error) {
     return error.details[0].message;
   }
 }
 
-async function validateCustomerUpdate(customer){
+async function validateCustomerUpdate(customer) {
   const schema = await Joi.object().keys({
-    id:Joi.string().required(),
-    name:Joi.string().required(),
+    id: Joi.string().required(),
+    name: Joi.string().required(),
     isGold: Joi.required(),
-    phone:Joi.string().required(),
-    address:Joi.string().required()
+    phone: Joi.string().required(),
+    address: Joi.string().required(),
   });
-  const {error} = await schema.validate(customer);
-  if(error){
+  const { error } = await schema.validate(customer);
+  if (error) {
     return error.details[0].message;
   }
 }
 
-async function validateCustomerDelete(customer){
-  const schema=await Joi.object().keys({
-    id:Joi.required()
+async function validateCustomerDelete(customer) {
+  const schema = await Joi.object().keys({
+    id: Joi.required(),
   });
-  const {error} = await schema.validate(customer);
-  if(error){
+  const { error } = await schema.validate(customer);
+  if (error) {
     return error.details[0].mesaage;
   }
 }
 
+async function validateUserSchema(user) {
+  const schema = await Joi.object().keys({
+    userName: Joi.string().required(),
+    userEmail: Joi.required(),
+    userPassword: Joi.string().required(),
+  });
+  const { error } = await schema.validate(user);
+  if (error) {
+    return error.details[0].mesaage;
+  }
+}
 
-module.exports = { validateSchema, validateDeleteSchema, validatePostSchema ,validateMovie, validateMovieUpdate, validateMovieDelete, validateRental, validateRentalUpdate, validateRentalDelete, validateCustomer, validateCustomerUpdate, validateCustomerDelete};
+async function validateAuthUserSchema(user) {
+  const schema = await Joi.object().keys({
+    userEmail: Joi.required(),
+    userPassword: Joi.string().required(),
+  });
+  const { error } = await schema.validate(user);
+  if (error) {
+    return error.details[0].mesaage;
+  }
+}
+
+module.exports = {
+  validateSchema,
+  validateDeleteSchema,
+  validatePostSchema,
+  validateMovie,
+  validateMovieUpdate,
+  validateMovieDelete,
+  validateRental,
+  validateRentalUpdate,
+  validateRentalDelete,
+  validateCustomer,
+  validateCustomerUpdate,
+  validateCustomerDelete,
+  validateUserSchema,
+  validateAuthUserSchema,
+};

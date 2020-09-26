@@ -31,10 +31,16 @@
 					"name": "02 POST Genre ",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZjZlZTJiZmEzM2FhZTJmMTQwNWUzNTQiLCJpYXQiOjE2MDExMTAwNjN9.jqpZZaDUEj9txAufENd_iIMrSzSfHF8p1ISWGBO-ARU",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"genre\" : \"fantasy\"\r\n}\r\n",
+							"raw": "{\r\n    \"genre\" : \"new genre\"\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -87,10 +93,16 @@
 					"name": "04 DELETE Genre",
 					"request": {
 						"method": "DELETE",
-						"header": [],
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZjZlZTJiZmEzM2FhZTJmMTQwNWUzNTQiLCJpYXQiOjE2MDExMTAwNjN9.jqpZZaDUEj9txAufENd_iIMrSzSfHF8p1ISWGBO-ARU",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\" :  \"5f6390cc6d43e82dd00bce45\"\r\n}",
+							"raw": "{\r\n    \"id\" :  \"5f6eff56fce645539c8863ed\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -368,7 +380,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"customerId\" : \"5f6b862d3d178f4384da3839\",\r\n    \"movieId\" : \"5f674013abebfa10d880502f\",\r\n    \"dateOut\": \"2020-09-24\",\r\n    \"dateReturned\": \"2020-10-01\",\r\n    \"rentalFee\" : 200\r\n}",
+							"raw": "{\r\n    \"customerId\" : \"5f6b865e3d178f4384da383a\",\r\n    \"movieId\" : \"5f6aec698455103ec4ad104a\",\r\n    \"dateOut\": \"2020-09-25\",\r\n    \"dateReturned\": \"2020-10-02\",\r\n    \"rentalFee\" : 150\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -396,7 +408,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": \"5f6c3e8717e1e22124af5caf\",\r\n    \"customerId\":\"5f6b865e3d178f4384da383a\",\r\n    \"customerName\":\"updated customer\",\r\n    \"customerPhone\": \"9167890543\",\r\n    \"customerIsGold\":\"true\",\r\n    \"movieId\":\"5f6aec698455103ec4ad104a\",\r\n    \"movieTitle\":\"updated movie\",\r\n    \"movieDailyRentalRate\":150,\r\n    \"dateOut\": \"2020-09-24\",\r\n    \"dateReturned\": \"2020-10-01\",\r\n    \"rentalFee\": 200\r\n}",
+							"raw": "{\r\n    \"id\": \"5f6c5599852bd10634b80da3\",\r\n    \"customerId\":\"5f6b865e3d178f4384da383a\",\r\n    \"movieId\":\"5f6aec698455103ec4ad104a\",\r\n    \"dateOut\": \"2020-09-24\",\r\n    \"dateReturned\": \"2020-10-01\",\r\n    \"rentalFee\": 150\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -424,7 +436,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\" : \"5f6c4b345a8d172a78732f48\"\r\n}",
+							"raw": "{\r\n    \"id\" : \"5f6c552a852bd10634b80d9f\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -446,6 +458,101 @@
 					"response": []
 				}
 			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\": \"test8\",\r\n    \"userEmail\": \"test8@vidly.com\",\r\n    \"userPassword\": \"test8@12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{genre-localhost}}/vidly.com/api/users",
+							"host": [
+								"{{genre-localhost}}"
+							],
+							"path": [
+								"vidly.com",
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Authentication",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userEmail\": \"test9@vidly.com\",\r\n    \"userPassword\": \"test9@12345\"\r\n} ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{genre-localhost}}/vidly.com/api/auth",
+							"host": [
+								"{{genre-localhost}}"
+							],
+							"path": [
+								"vidly.com",
+								"api",
+								"auth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Current User",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZjZlZWJiMDQzYjRkNjQ4NTg3ZDQ4ZGIiLCJpYXQiOjE2MDExMDUzMjZ9.AmS00QD3qLWxYBqFqutWIRYa9H6PpJvO0xWleXTalXg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{genre-localhost}}/vidly.com/api/me",
+							"host": [
+								"{{genre-localhost}}"
+							],
+							"path": [
+								"vidly.com",
+								"api",
+								"me"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Authorization",
 			"protocolProfileBehavior": {}
 		}
 	],
