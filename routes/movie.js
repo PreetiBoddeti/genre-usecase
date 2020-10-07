@@ -1,4 +1,6 @@
 const validateSchema = require("../validations/validation");
+const auth= require("../middleware/auth");   
+const admin = require("../middleware/admin");
 const {Movie} =require('../models/movie');
 const {Genre} = require('../models/genre');
 const express = require('express');
@@ -19,7 +21,7 @@ router.get("/vidly.com/api/movies", async (req, res) => {
   });
   
   //POST
-  router.post("/vidly.com/api/movies", async (req, res) => {
+  router.post("/vidly.com/api/movies",auth, async (req, res) => {
     debugpost("debugging POST method");
     var result = await validateSchema.validateMovie(req.body);
     if (result) {
@@ -43,7 +45,7 @@ router.get("/vidly.com/api/movies", async (req, res) => {
   });
   
   //PUT
-  router.put("/vidly.com/api/movies", async (req, res) => {
+  router.put("/vidly.com/api/movies",auth, async (req, res) => {
     debugput("debugging PUT method");
     var result = await validateSchema.validateMovie(req.body);
     if (result) {
@@ -65,7 +67,7 @@ router.get("/vidly.com/api/movies", async (req, res) => {
   });
   
   //DELETE
-  router.delete("/vidly.com/api/movies", async (req, res) => {
+  router.delete("/vidly.com/api/movies",[auth,admin], async (req, res) => {
     debugdelete("debugging DELETE method", req.body);
     var result = await validateSchema.validateMovieDelete(req.body);
     if (result) {

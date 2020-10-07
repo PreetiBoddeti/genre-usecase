@@ -1,6 +1,8 @@
 const validateSchema = require("../validations/validation");
 const mongoose = require("mongoose");
 const {Rental} = require('../models/rental');
+const auth= require("../middleware/auth");   
+const admin = require("../middleware/admin");
 const debugget = require("debug")("genre-project:GET");
 const debugpost = require("debug")("genre-project:POST");
 const debugput = require("debug")("genre-project:PUT");
@@ -20,7 +22,7 @@ router.get("/vidly.com/api/rentals", async (req, res) => {
   });
   
   //POST
-  router.post("/vidly.com/api/rentals", async (req, res) => {
+  router.post("/vidly.com/api/rentals",auth, async (req, res) => {
     debugpost("debugging POST method");
     var result = await validateSchema.validateRental(req.body);
     if (result) {
@@ -60,7 +62,7 @@ router.get("/vidly.com/api/rentals", async (req, res) => {
   });
   
   //PUT
-  router.put("/vidly.com/api/rentals", async (req, res) => {
+  router.put("/vidly.com/api/rentals",auth, async (req, res) => {
     debugput("debugging PUT method");
     var result = await validateSchema.validateRentalUpdate(req.body);
     if (result) {
@@ -99,7 +101,7 @@ router.get("/vidly.com/api/rentals", async (req, res) => {
   });
   
   //DELETE
-  router.delete("/vidly.com/api/rentals", async (req, res) => {
+  router.delete("/vidly.com/api/rentals",[auth,admin] ,async (req, res) => {
     debugdelete("debugging DELETE method", req.body);
     var result = await validateSchema.validateRentalDelete(req.body);
     if (result) {

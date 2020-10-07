@@ -43,7 +43,7 @@ router.get("/vidly.com/api/genres", async (req, res) => {
     res.send(genre);
   });
   
-  router.put("/vidly.com/api/genres", async (req, res) => {
+  router.put("/vidly.com/api/genres",auth, async (req, res) => {
     debugput("debugging PUT method");
     var result = await validateSchema.validateSchema(req.body);
     if (result) {
