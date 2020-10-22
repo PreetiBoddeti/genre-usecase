@@ -1,3 +1,5 @@
 {
-  "jwtPrivateKey": "vidly_jwtPrivateKey"
+  "name":"prakash",
+  "jwtPrivateKey": "vidly_jwtPrivateKey",
+  "db":"mongodb+srv://preeti_1620:Preet!@1620@cluster0.rxbis.mongodb.net/vidly"
 }
